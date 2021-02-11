@@ -1,11 +1,14 @@
 import java.util.*
 
 fun main(args: Array<String>){
-    print(getFortuneCookie())
+    var fortune: String = ""
+    while (!fortune.contains("Take it easy")) {
+        fortune = getFortuneCookie(getBirthday())
+        println("\nYour fortune is: $fortune")
+    }
 }
 
-fun getFortuneCookie() : String{
-
+fun getFortuneCookie(birthday : Int) : String{
     val fortunesList : MutableList<String> = mutableListOf(
         "You will have a great day!",
         "Things will go well for you today.",
@@ -15,10 +18,10 @@ fun getFortuneCookie() : String{
         "Take it easy and enjoy life!",
         "Treasure your friends because they are your greatest fortune.");
 
-    print("Enter your birthday: ")
-
-    var birthday = readLine()?.toIntOrNull() ?: 1
-
-
     return fortunesList[birthday/fortunesList.size]
+}
+
+fun getBirthday() : Int{
+    print("Enter your birthday: ")
+    return  readLine()?.toIntOrNull() ?: 1
 }
