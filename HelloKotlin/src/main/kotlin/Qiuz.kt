@@ -1,27 +1,11 @@
 fun main(args: Array<String>){
-    print(getFortuneCookie(getBirthday()))
+    val test = whatShouldIDoToday("sad")
+    print(test)
 }
 
-fun getFortuneCookie(birthday : Int) : String{
-
-    val fortunesList : MutableList<String> = mutableListOf(
-        "You will have a great day!",
-        "Things will go well for you today.",
-        "Enjoy a wonderful day of success.",
-        "Be humble and all will turn out well.",
-        "Today is a good day for exercising restraint.",
-        "Take it easy and enjoy life!",
-        "Treasure your friends because they are your greatest fortune.");
-
-    return when(birthday){
-        28 , 31 -> fortunesList[0]
-        in 1..7 -> fortunesList[1]
-        else -> fortunesList[birthday/fortunesList.size]
+fun whatShouldIDoToday(mood: String, weather:String ="sunny", temperature: Int = 24) : String{
+    return when  {
+        mood == "happy" && weather == "Sunny" -> "go for a walk"
+        else -> "Stay home and read."
     }
-
-}
-
-fun getBirthday(): Int{
-    print("Enter your birthday: ")
-    return readLine()?.toIntOrNull() ?: 1
 }
