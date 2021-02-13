@@ -1,4 +1,3 @@
-import javafx.scene.effect.Light
 
 class Spice (val name : String, val spiciness : String = "mild"){
 
