@@ -1,4 +1,4 @@
-abstract class Spices(val name: String, val spiciness: String = "mild", color: SpiceColor) : SpiceColor by color {
+sealed class Spices(val name: String, val spiciness: String = "mild", color: SpiceColor) : SpiceColor by color {
     abstract fun prepareSpice()
 }
 
@@ -19,12 +19,16 @@ interface Grinder {
 }
 
 interface SpiceColor {
-    var color: String
+    var color: Color
 }
 
-object YellowSpiceColor : SpiceColor {
-    override var color = "Yellow"
+object YellowSpiceColor : SpiceColor{
+    override var color = Color.YELLOW
 
+}
+
+enum class Color(val rgb: Int) {
+    RED(0xFF0000), GREEN(0x00FF00), BLUE(0x0000FF), YELLOW(0xFFFF00);
 }
 
 fun main(args: Array<String>) {
