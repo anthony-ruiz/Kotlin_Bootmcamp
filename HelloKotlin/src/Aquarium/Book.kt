@@ -1,16 +1,20 @@
-open  class Book (val title : String, val author : String ) {
 
-    private var currentPage : Int = 1
+class Book(var title: String, var author: String, var year : Int){
 
-    open fun readPage(){
-        currentPage.inc()
+    fun basicInfo() : Pair<String, String> {
+       return  title to author
+        //return myValue
     }
 
+    fun allInfo(): Triple<String, String, Int> {
+        return Triple(title,author,year)
+    }
 }
-class eBook(title : String, author : String, var format: String = "text") : Book(title, author ){
-    private var wordCount = 0
 
-    override fun readPage() {
-        wordCount = wordCount + 250
-    }
+fun main(args : Array<String>){
+    val myBook = Book("don quijote", "pepe", 2012)
+    print(myBook.basicInfo().toString())
+    print(myBook.allInfo().toString())
+    val (name, author, year ) = myBook.allInfo()
+    print("Here is your book $name written by $author in $year")
 }
