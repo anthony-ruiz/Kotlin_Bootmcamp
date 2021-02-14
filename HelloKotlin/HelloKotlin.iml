@@ -7,6 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/kotlin" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Aquarium" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Spices" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Books" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
