@@ -1,24 +1,28 @@
 
+const val MAX_BOOKS_BORROWED = 20
+
+
+
 class Book(var title: String, var author: String, var year : Int){
 
-    fun basicInfo() : Pair<String, String> {
-       return  title to author
-        //return myValue
+
+    fun canBorrow(booksBorrowed :Int) : Boolean{
+        return booksBorrowed <= MAX_BOOKS_BORROWED
     }
 
-    fun allInfo(): Triple<String, String, Int> {
-        return Triple(title,author,year)
+    companion object{
+        const val BASE_URL = "www.amazon.com/"
     }
+
+    fun printURL(){
+        print("$BASE_URL$author.html")
+    }
+
 }
 
 fun main(args : Array<String>){
+    val myBook = Book("Hamlet" , "Shakespeare" , 1601)
+    myBook.printURL()
 
-    val allBooks = setOf("Hamlet", "MacBeth", "Rome and Juliet")
-    val library = mapOf("shakespeare" to allBooks)
 
-    println(library.any { it.value.contains("Hamlet") })
-
-    var moreBooks = mutableMapOf("Lion King" to "Steven" )
-    moreBooks.getOrPut("Romeo and Juliet" , {"shakespeare"})
-    moreBooks.forEach{ it -> println("author: ${it.key} book: ${it.value} ")}
 }
