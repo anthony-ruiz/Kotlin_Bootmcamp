@@ -18,14 +18,28 @@ class Game{
     var west = {path.add(Directions.WEST)}
     var end = {path.add(Directions.END) ; println("Game Over ${path}") ; path.clear() ;  false}
 
+    fun move(where : () -> Boolean){
+        where.invoke()
+    }
+
+    fun makeMove(direction : String?){
+        when {
+            direction.equals("n") -> move(north)
+            direction.equals("s") -> move(south)
+            direction.equals("e") -> move(east)
+            direction.equals("w") -> move(west)
+            else -> move(end)
+        }
+    }
 }
 fun main (args: Array<String>){
     var myGame = Game()
-    println(myGame.path)
-    myGame.north()
-    myGame.east()
-    myGame.south()
-    myGame.west()
-    myGame.end()
-    println(myGame.path)
+
+    while (true){
+        print("Enter a direction: n/s/e/w:")
+        myGame.makeMove(readLine())
+
+
+    }
 }
+
